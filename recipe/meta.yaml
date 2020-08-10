@@ -1,5 +1,5 @@
 {% set name = "dataprep" %}
-{% set version = "0.2.10" %}
+{% set version = "0.2.11" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: e3046005bd827f998ead3f90ce02642ce91ff3a7fde041e3623fb05f92db7fb5
+  sha256: f662d667de49a80701499f462749b8cae7f358d915613a0203c9023a20062b89
 
 build:
   noarch: python
@@ -20,16 +20,16 @@ requirements:
     - python
     - poetry >=1
   run:
-    - python
+    - aiohttp >=3.6.2,<4.0.0
     - bokeh >=2.0,<2.1
-    - dask >=2.13,<2.14
+    - dask >=2.22,<2.23
     - pyyaml
     - cloudpickle >=0.2.2
     - distributed >=2.0
     - fsspec >=0.6.0
     - partd >=0.3.10
     - toolz >=0.8.2
-    - holoviews >=1.13,<1.14
+    - ipython >=5.4.0
     - jinja2 >=2.11,<2.12
     - jsonpath-ng >=1.5.1,<2.0.0
     - jsonschema >=3.2,<3.3
@@ -38,6 +38,7 @@ requirements:
     - numpy >=1.18,<1.19
     - pandas >=1.0,<1.1
     - pillow >=7.1.2,<8.0.0
+    - python
     - requests >=2.23,<2.24
     - scipy >=1.4,<1.5
     - tornado ==5.0.2
@@ -48,12 +49,14 @@ test:
   imports:
     - dataprep
     - dataprep.assets
-    - dataprep.data_connector
+    - dataprep.connector
     - dataprep.eda
     - dataprep.eda.basic
     - dataprep.eda.correlation
     - dataprep.eda.create_report
+    - dataprep.eda.distribution
     - dataprep.eda.missing
+  
 
 about:
   home: https://github.com/sfu-db/dataprep
