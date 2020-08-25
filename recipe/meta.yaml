@@ -1,18 +1,18 @@
 {% set name = "dataprep" %}
-{% set version = "0.2.11" %}
+{% set version = "0.2.12" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: f662d667de49a80701499f462749b8cae7f358d915613a0203c9023a20062b89
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 6e2817ccb2cd19ef2fbff0da7af140a3ee4ccb218625d8ba13ea1ff7085955ff
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -56,14 +56,14 @@ test:
     - dataprep.eda.create_report
     - dataprep.eda.distribution
     - dataprep.eda.missing
-  
+
 
 about:
   home: https://github.com/sfu-db/dataprep
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: "Dataprep: Data Preparation in Python"
+  summary: 'Dataprep: Data Preparation in Python'
   doc_url: https://sfu-db.github.io/dataprep/
   dev_url: https://github.com/sfu-db/dataprep
 
