@@ -1,5 +1,5 @@
 {% set name = "dataprep" %}
-{% set version = "0.2.12" %}
+{% set version = "0.2.13.post1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6e2817ccb2cd19ef2fbff0da7af140a3ee4ccb218625d8ba13ea1ff7085955ff
+  sha256: 928b0022d4cead063ae3a0cc511ace28f6a35ec14634686652b068ab1a7681e2
 
 build:
   noarch: python
