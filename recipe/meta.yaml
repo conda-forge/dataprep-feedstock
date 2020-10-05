@@ -1,18 +1,18 @@
 {% set name = "dataprep" %}
-{% set version = "0.2.13.post1" %}
+{% set version = "0.2.13.post2" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 928b0022d4cead063ae3a0cc511ace28f6a35ec14634686652b068ab1a7681e2
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 813fe06e041c45e3873fecd984c686ea064d397fe07d8ea34c2bdde06c311d41
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
