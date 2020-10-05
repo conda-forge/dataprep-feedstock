@@ -1,18 +1,18 @@
 {% set name = "dataprep" %}
-{% set version = "0.2.12" %}
+{% set version = "0.2.13.post1" %}
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6e2817ccb2cd19ef2fbff0da7af140a3ee4ccb218625d8ba13ea1ff7085955ff
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 928b0022d4cead063ae3a0cc511ace28f6a35ec14634686652b068ab1a7681e2
 
 build:
   noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   build:
@@ -22,12 +22,11 @@ requirements:
   run:
     - aiohttp >=3.6.2,<4.0.0
     - bokeh >=2.0,<2.1
-    - dask >=2.22,<2.23
-    - pyyaml
+    - bottleneck >=1.3.2,<2.0.0
+    - dask >=2.25,<2.26
     - cloudpickle >=0.2.2
     - distributed >=2.0
     - fsspec >=0.6.0
-    - partd >=0.3.10
     - toolz >=0.8.2
     - ipython >=5.4.0
     - jinja2 >=2.11,<2.12
@@ -35,21 +34,28 @@ requirements:
     - jsonschema >=3.2,<3.3
     - lxml >=4.5,<4.6
     - nltk >=3.4.4,<4.0
-    - numpy >=1.18,<1.19
+    - numpy >=1.19,<1.20
     - pandas >=1.0,<1.1
+    - partd >=0.3.10
     - pillow >=7.1.2,<8.0.0
+    - pydantic >=1.6.1,<2.0.0
     - python
-    - requests >=2.23,<2.24
-    - scipy >=1.4,<1.5
+    - pyyaml
+    - requests >=2.24,<2.25
+    - scipy >=1.5,<1.6
+    - stringcase >=1.2.0,<2.0.0
     - tornado ==5.0.2
-    - tqdm >=4.47.0,<5.0.0
-    - wordcloud >=1.7.0,<2.0.0
+    - tqdm >=4.48,<4.49
+    - wordcloud >=1.8,<1.9
 
 test:
   imports:
     - dataprep
     - dataprep.assets
     - dataprep.connector
+    - dataprep.connector.generator
+    - dataprep.connector.schema
+    - dataprep.clean
     - dataprep.eda
     - dataprep.eda.basic
     - dataprep.eda.correlation
