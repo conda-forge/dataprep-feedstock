@@ -5,11 +5,13 @@ Home: https://github.com/sfu-db/dataprep
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dataprep-feedstock/blob/master/LICENSE.txt)
 
 Summary: Dataprep: Data Preparation in Python
 
+Development: https://github.com/sfu-db/dataprep
 
+Documentation: https://sfu-db.github.io/dataprep/
 
 Current build status
 ====================
