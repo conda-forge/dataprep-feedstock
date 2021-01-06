@@ -8,8 +8,8 @@ conda-shell:
 build:
   python build-locally.py
 
-install-conda:
-  docker run -it --rm condaforge/linux-anvil-comp7 bash -c "conda install -y -c conda-forge dataprep"
+install-in-conda:
+  docker run -it --rm continuumio/anaconda3 bash -c "conda install -y -c conda-forge dataprep"
 
 skeleton:
   docker run -it --rm \
