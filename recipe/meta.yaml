@@ -1,13 +1,13 @@
 {% set name = "dataprep" %}
-{% set version = "0.2.15" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 2be083a24ffb8406fcf16825dceb98bc83c2f5adef7b153e820817ea250cdc7d
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 08dbebdd2343b845ae8c27a8d50ab5f7438623abcbb694451cbcb8ab5dbe5be0
 
 build:
   noarch: python
@@ -15,7 +15,7 @@ build:
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
-  build:
+  host:
     - pip
     - python >=3.6
     - poetry >=1
