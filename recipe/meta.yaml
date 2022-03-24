@@ -1,13 +1,13 @@
 {% set name = "dataprep" %}
-{% set version = "0.2.15" %}
+{% set version = "0.4.3a1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 2be083a24ffb8406fcf16825dceb98bc83c2f5adef7b153e820817ea250cdc7d
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  # sha256: 0f12cafb4ca7dc4e8cc89c659315dc2bba6833807500ad4a252af542143d697c
 
 build:
   noarch: python
@@ -15,7 +15,7 @@ build:
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
-  build:
+  host:
     - pip
     - python >=3.6
     - poetry >=1
@@ -23,7 +23,7 @@ requirements:
     - aiohttp >=3.6,<4.0.0
     - bokeh >=2.0,<3
     - bottleneck >=1.3,<2.0
-    - dask >=2.25,<3
+    - dask >=2021.11
     - cloudpickle >=0.2.2
     - fsspec >=0.6.0
     - toolz >=0.8.2
@@ -31,17 +31,25 @@ requirements:
     - pyyaml
     - toolz >=0.8.2
     - ipywidgets >=7.5,<8.0
-    - jinja2 >=2.11,<3.0
+    - jinja2 >=3,<4.0
     - jsonpath-ng >=1.5,<2.0
-    - nltk >=3.4,<4.0
-    - numpy >=1.13.0,<2
-    - pandas >=1,<2
+    - nltk >=3.6.7,<4.0
+    - numpy >=1.21,<2
+    - pandas >=1.1,<2
     - pydantic >=1.6,<2.0
     - python >=3.6
-    - regex >=2020.10.15,<2021.0.0
     - scipy >=1,<2
     - tqdm >=4.48,<5.0
     - wordcloud >=1.8,<2.0
+
+    - regex >=2021.8.3
+    - flask >=2,<3
+    - flask_cors >=3,<4
+    - python-levenshtein >=0.12
+    - metaphone >=0.6
+    - python-crfsuite >=0.9.7
+    - python-stdnum >=1.16
+    - varname >=0.8.1
 
 test:
   imports:
@@ -53,11 +61,13 @@ test:
     - dataprep.connector.schema
     - dataprep.datasets
     - dataprep.eda
-    - dataprep.eda.basic
     - dataprep.eda.correlation
+    - dataprep.eda.create_diff_report
     - dataprep.eda.create_report
+    - dataprep.eda.diff
     - dataprep.eda.distribution
     - dataprep.eda.missing
+    - dataprep.eda.outlier
 
 
 about:
