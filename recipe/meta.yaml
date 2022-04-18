@@ -40,7 +40,7 @@ requirements:
     - scipy >=1,<2
     - tqdm >=4.48,<5.0
     - wordcloud >=1.8,<2.0
-
+    - sqlalchemy >=1.4.32
     - regex >=2021.8.3
     - flask >=2,<3
     - flask_cors >=3,<4
