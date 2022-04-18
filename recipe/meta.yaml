@@ -49,7 +49,7 @@ requirements:
     - python-crfsuite >=0.9.7
     - python-stdnum >=1.16
     - varname >=0.8.1
-
+    - pystache >=0.6.0
 test:
   imports:
     - dataprep
